@@ -13,10 +13,10 @@ import seaborn as sns
 import datetime
 import streamlit as st
 
-from packages.search_song import search_song
-from packages.run_recommender import get_feature_vector, show_similar_songs
+from utils.search_song import search_song
+from utils.run_recommender import get_feature_vector, show_similar_songs
 # load data
-dat = pd.read_csv('data/processed/dat_for_recommender.csv')
+dat = pd.read_csv('data_for_recommender.csv')
 
 song_features_normalized = ['valence', 'acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness']
 song_features_not_normalized = ['duration_ms', 'key', 'loudness', 'mode', 'tempo']
@@ -86,7 +86,7 @@ def main():
         else:
             
             # show the most similar songs in wordcloud
-            fig_cloud = show_similar_songs(song_name, year, dat, features, num_recommendations, plot_type='wordcloud')
+            fig_cloud = show_similar_songs(song_name, year, dat, features, num_recommendations, plot_type='bar')
             st.markdown(f"### Great! Here are your recommendation for \
                         \n#### {song_name} ({year})!")
             st.pyplot(fig_cloud)
