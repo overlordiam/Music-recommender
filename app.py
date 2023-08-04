@@ -1,11 +1,3 @@
-"""
-This is the main script for the streamlit app of song recommender.
-The script is written in Python 3.11.1. 
-author: Yannan Su
-date: 2023-05-10
-"""
-
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
